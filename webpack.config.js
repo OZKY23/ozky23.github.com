@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const autoprefixer = require('autoprefixer')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
@@ -8,6 +9,11 @@ module.exports = {
   output: {
     filename: './dist/bundle.js',
     path: path.resolve(__dirname),
+  },
+  devServer: {
+    static: path.resolve(__dirname),
+    port: 8080,
+    hot: true
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -22,7 +28,7 @@ module.exports = {
     rules: [
       {
         test: /\.scss$/,
-        use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader', 'sass-loader'],
       },
     ],
   },
