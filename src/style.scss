@@ -249,7 +249,6 @@ input:checked + .slider:before {
 .icon-list {
   width: 100%;
   max-width: 50rem;
-  padding: 0 1.5rem;
   display: flex;
   justify-content: space-between;
 }
@@ -269,6 +268,10 @@ input:checked + .slider:before {
   position: relative;
   z-index: 1;
   margin: auto
+}
+
+.icon-link > .bi {  
+  height: unset !important;
 }
 
 .icon-link:hover {
