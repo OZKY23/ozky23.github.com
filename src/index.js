@@ -43,6 +43,7 @@ let lastScrollTop = 0;
 const delta = 5;
 const navbarHeight = document.querySelector('header').offsetHeight;
 const header = document.querySelector('header');
+const scroller = document.querySelector('.page');
 
 // Aggiungi listener per l'evento mousemove
 document.addEventListener('mousemove', handleMoveEvent);
@@ -69,7 +70,7 @@ function handleMoveEvent(event) {
     }
 }
 
-window.addEventListener('scroll', function() {
+scroller.addEventListener('scroll', function() {
     didScroll = true;
 });
 
@@ -81,7 +82,7 @@ setInterval(function() {
 }, 250);
 
 function hasScrolled() {
-    const st = window.scrollY || document.documentElement.scrollTop;
+    const st = scroller.scrollTop;
     const visibleSection = getVisibleSections(mainContainer);
 
     if (Math.abs(lastScrollTop - st) <= delta) {
@@ -91,7 +92,8 @@ function hasScrolled() {
     if (st > lastScrollTop && st > navbarHeight){
         document.querySelector('header').classList.add('scroll-up');
     } else {
-        if (st + window.innerHeight < document.documentElement.scrollHeight) {
+        console.log("refs",scroller.innerHeight, scroller.scrollHeight)
+        if (st < scroller.scrollHeight) {
             document.querySelector('header').classList.remove('scroll-up');
         }
     }
