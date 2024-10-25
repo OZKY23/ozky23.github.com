@@ -835,3 +835,31 @@ input:checked + .slider:before {
 		scale: 1.2;
 	}
 }
+
+.p-field-3d {
+	position: relative;
+	transform-style: preserve-3d;
+	width: 100%;
+	height: 100vh;
+	animation: rotate 30s infinite;
+	&__item {
+		position: absolute;
+		left: 0;
+		top: 0;
+		transition: filter 0.8s;
+		border-radius: 50%;
+		overflow: hidden;
+	}
+}
+
+@keyframes rotate {
+	0% {
+		transform: rotateX(0deg) rotateY(0deg);
+	}
+	50% {
+		transform: rotateX(0deg) rotateY(8deg);
+	}
+	100% {
+		transform: rotateX(0deg) rotateY(0deg);
+	}
+}
