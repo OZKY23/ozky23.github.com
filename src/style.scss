@@ -849,6 +849,8 @@ input:checked + .slider:before {
 		transition: filter 0.8s;
 		border-radius: 50%;
 		overflow: hidden;
+		width: 10rem;
+		height: 10rem;
 	}
 }
 

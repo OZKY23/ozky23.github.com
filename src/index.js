@@ -172,18 +172,14 @@ document.addEventListener("DOMContentLoaded", () => {
 	move();
 });
 
-const maxItems = 20;
 const fieldClass = ".p-field-3d";
 const itemSize = 100;
 
 const generateRandomPosition = () => {
 	const screenWidth = window.innerWidth;
 	const screenHeight = window.innerHeight;
-
-	// Generate random x and y positions
 	const x = Math.floor(Math.random() * (screenWidth - itemSize));
 	const y = Math.floor(Math.random() * (screenHeight - itemSize));
-
 	return { x, y };
 };
 
@@ -204,18 +200,16 @@ const extractZValueFromTransform = (transformValue) => {
 
 const render3dItems = () => {
 	const field = document.querySelector(fieldClass);
+
 	if (field === null) return;
-	for (let i = 0; i < maxItems; i++) {
-		const randomImg = Math.floor(Math.random() * 1100);
-		const randomPos = Math.floor(Math.random() * -1200);
+	const fieldImgs = Array.from(field.querySelectorAll("img"));
+
+	fieldImgs.forEach((img) => {
+		const randomPos = Math.floor(Math.random() * -500);
 		const position = generateRandomPosition();
-		const randomUrl = `https://picsum.photos/id/${randomImg}`;
-		const imgElm = document.createElement("img");
-		imgElm.classList.add("p-field-3d__item");
-		imgElm.setAttribute("src", randomUrl);
-		imgElm.style.transform = `translate3d(${position.x}px, ${position.y}px, ${randomPos}px)`;
-		field.appendChild(imgElm);
-	}
+		img.style.transform = `translate3d(${position.x}px, ${position.y}px, ${randomPos}px)`;
+		console.log(position);
+	});
 };
 render3dItems();
 
@@ -231,7 +225,7 @@ document.addEventListener("DOMContentLoaded", () => {
 				const otherPosition = getComputedStyle(img).transform;
 				const otherZvalue = extractZValueFromTransform(otherPosition);
 				if (zValue === null || otherZvalue === null) return;
-				const blurValue = (1.2 * Math.abs(zValue - otherZvalue)) / 100;
+				const blurValue = (1.1 * Math.abs(zValue - otherZvalue)) / 100;
 				img.style.filter = `blur(${blurValue}px)`;
 			}
 		});
