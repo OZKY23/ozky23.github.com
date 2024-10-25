@@ -10,56 +10,84 @@
 		<header class="container-fluid d-flex justify-content-center">
 			<nav class="nav justify-content-around overflow-hidden">
 				<span class="nav-indicator"></span>
-				<a href="#home" class="nav-item is-active" active-color="orange"
-					>Home</a
+				<a
+					href="#home"
+					class="nav-item is-active p-2 p-md-3"
+					active-color="orange"
 				>
-				<a href="#about" class="nav-item" active-color="green">About</a>
-				<a href="#dev" class="nav-item" active-color="blue">Dev</a>
-				<a href="#gfx" class="nav-item" active-color="red">Gfx</a>
-				<a href="#contact" class="nav-item" active-color="rebeccapurple"
-					>Contact</a
+					<span class="d-none d-sm-block">Home</span>
+					<i class="bi bi-house d-block d-sm-none fs-3"></i>
+				</a>
+				<a
+					href="#about"
+					class="nav-item p-2 p-md-3"
+					active-color="green"
 				>
-				<div class="align-content-center" style="line-height: 1em">
-					<i class="bi bi-lamp text-body-tertiary"></i>
-					<span class="">
-						<label class="switch">
-							<input
-								title="darkmode"
-								id="btnSwitch"
-								type="checkbox"
-							/>
-							<span class="slider round"></span>
-						</label>
-					</span>
+					<span class="d-none d-sm-block">About</span>
+					<i class="bi bi-person-circle d-block d-sm-none fs-3"></i>
+				</a>
+				<a href="#dev" class="nav-item p-2 p-md-3" active-color="blue">
+					<span class="d-none d-sm-block">Dev</span>
+					<i class="bi bi-code-square d-block d-sm-none fs-3"></i>
+				</a>
+				<a href="#gfx" class="nav-item p-2 p-md-3" active-color="red">
+					<span class="d-none d-sm-block">Gfx</span>
+					<i class="bi bi-palette d-block d-sm-none fs-3"></i>
+				</a>
+				<a
+					href="#contact"
+					class="nav-item p-2 p-md-3"
+					active-color="rebeccapurple"
+				>
+					<span class="d-none d-sm-block">Contact</span>
+					<i class="bi bi-envelope-plus d-block d-sm-none fs-3"></i
+				></a>
+				<div class="align-items-center d-flex" style="line-height: 1em">
+					<i class="bi bi-lamp text-body-tertiary p-2"></i>
+					<label class="switch">
+						<input
+							title="darkmode"
+							id="btnSwitch"
+							type="checkbox"
+						/>
+						<span class="slider round"></span>
+					</label>
 				</div>
 			</nav>
 		</header>
-		<main class="page container-fluid">
+
+		<main class="page container-fluid position-relative z-3">
 			<div
 				id="home"
 				class="section row align-items-center justify-content-center min-vh-100"
 			>
-				<h1 class="text-center justify-content-center pt-5 display-1">
-					Hi, I'm <b style="font-weight: 900">Oscar</b>.
-				</h1>
-				<p class="display-6 text-center">🇮🇹 🧑🏽‍💻 🎨</p>
-				<a href="#about" class="align-self-end">
-					<div id="scrolldown" class="align-self-end pb-5">
-						<div class="container">
-							<div class="chevron"></div>
-							<div class="chevron"></div>
-							<div class="chevron"></div>
+				<div
+					class="d-flex flex-column justify-content-between vh-100 landing-hero"
+				>
+					<h1
+						class="text-center justify-content-center pt-5 display-1"
+					>
+						Hi, I'm <b style="font-weight: 900">Oscar</b>.
+					</h1>
+					<p class="display-6 text-center">🇮🇹 🧑🏽‍💻 🎨</p>
+					<a href="#about" class="">
+						<div id="scrolldown" class="align-self-end pb-5">
+							<div class="container">
+								<div class="chevron"></div>
+								<div class="chevron"></div>
+								<div class="chevron"></div>
+							</div>
 						</div>
-					</div>
-				</a>
+					</a>
+				</div>
 			</div>
 
 			<div
 				id="about"
-				class="section row min-vh-100 bg-success bg-opacity-10"
+				class="section row min-vh-100 bg-success bg-opacity-25"
 			>
 				<div
-					class="col text-center d-flex flex-column align-items-center justify-content-center bg-body col-md-8 bg-opacity-50 m-auto"
+					class="col rounded-5 blurry text-center d-flex flex-column align-items-center justify-content-center bg-body col-md-8 bg-opacity-25 m-auto"
 				>
 					<div class="mt-5">
 						<i class="bi bi-person-circle fs-1"></i>
@@ -101,10 +129,10 @@
 
 			<div
 				id="dev"
-				class="section row d-flex flex-column min-vh-100 bg-danger bg-opacity-10"
+				class="section row d-flex flex-column min-vh-100 bg-danger bg-opacity-25 justify-content-evenly"
 			>
-				<div class="container my-5">
-					<div class="p-md-3 text-center mt-4">
+				<div class="container">
+					<div class="p-md-3 text-center mt-2">
 						<h1 class="text-body-emphasis display-2">
 							Design Meets Code
 						</h1>
@@ -744,20 +772,22 @@
 					</ul>
 				</div>
 				<div class="container">
-					<div class="p-3 p-md-4 text-center rounded-3">
+					<div
+						class="p-3 p-md-4 text-center rounded-5 col-md-8 mx-auto bg-body bg-opacity-25 blurry"
+					>
 						<h5 class="m-2">Pixel-Perfect User Experiences</h5>
-						<p class="col-lg-6 mx-auto fs-5 text-muted py-3">
+						<p class="fs-5 text-muted py-3">
 							I'm a passionate web craftsman who bridges the gap
 							between stunning visuals and seamless user
 							interactions.
 						</p>
 
-						<p>
+						<p class="fs-5 text-muted">
 							I leverage my expertise in both visual design and
 							front-end development to create captivating and
 							<b>user-centric</b> web experiences.
 						</p>
-						<p>
+						<p class="fs-5 text-muted">
 							From crafting intuitive interfaces that guide users
 							effortlessly to building interactive elements that
 							engage and delight, I prioritize a responsive design
@@ -766,7 +796,7 @@
 							devices.
 						</p>
 						<div
-							class="d-flex flex-column flex-md-row gap-3 justify-content-evenly mb-5"
+							class="d-flex flex-column flex-md-row gap-3 justify-content-evenly py-4"
 						>
 							<button
 								class="align-items-center btn btn-primary btn-lg px-5 rounded-pill"
@@ -789,7 +819,7 @@
 
 			<div
 				id="gfx"
-				class="section row min-vh-100 bg-warning bg-opacity-10"
+				class="section row min-vh-100 bg-warning bg-opacity-25"
 			>
 				<h1
 					class="col text-center d-flex align-items-center justify-content-center"
@@ -800,7 +830,7 @@
 
 			<div
 				id="contact"
-				class="section row min-vh-100 bg-primary bg-opacity-10"
+				class="section row min-vh-100 bg-primary bg-opacity-25"
 			>
 				<div
 					class="col text-center d-flex flex-column align-items-center justify-content-center"
@@ -819,7 +849,7 @@
 							<a
 								type="button"
 								href="mailto:ozky23@gmail.com"
-								class="btn btn-primary btn-lg fs-3 p-3"
+								class="btn btn-primary btn-lg fs-3 p-3 px-5"
 							>
 								<i class="bi bi-envelope-at me-3"></i
 								><b>Drop me an email!</b>
@@ -856,5 +886,53 @@
 				</p>
 			</footer>
 		</main>
+		<div class="gradient-bg position-fixed z-0">
+			<svg
+				viewBox="0 0 100vw 100vw"
+				xmlns="http://www.w3.org/2000/svg"
+				class="noiseBg"
+			>
+				<filter id="noiseFilterBg">
+					<feTurbulence
+						type="fractalNoise"
+						baseFrequency="0.6"
+						stitchTiles="stitch"
+					/>
+				</filter>
+
+				<rect
+					width="100%"
+					height="100%"
+					preserveAspectRatio="xMidYMid meet"
+					filter="url(#noiseFilterBg)"
+				/>
+			</svg>
+			<svg xmlns="http://www.w3.org/2000/svg" class="svgBlur">
+				<defs>
+					<filter id="goo">
+						<feGaussianBlur
+							in="SourceGraphic"
+							stdDeviation="10"
+							result="blur"
+						/>
+						<feColorMatrix
+							in="blur"
+							mode="matrix"
+							values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -8"
+							result="goo"
+						/>
+						<feBlend in="SourceGraphic" in2="goo" />
+					</filter>
+				</defs>
+			</svg>
+			<div class="gradients-container">
+				<div class="g1"></div>
+				<div class="g2"></div>
+				<div class="g3"></div>
+				<div class="g4"></div>
+				<div class="g5"></div>
+				<div class="interactive"></div>
+			</div>
+		</div>
 	</body>
 </html>
