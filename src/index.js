@@ -173,13 +173,27 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 const fieldClass = ".p-field-3d";
-const itemSize = 100;
+const itemSize = 200;
 
 const generateRandomPosition = () => {
 	const screenWidth = window.innerWidth;
 	const screenHeight = window.innerHeight;
+	const fractions = 3; // Has to be a odd number
+	const showFraction = Math.floor(fractions / 2);
+	const fractionUnit = screenHeight / fractions;
+
 	const x = Math.floor(Math.random() * (screenWidth - itemSize));
-	const y = Math.floor(Math.random() * (screenHeight - itemSize));
+	let y = Math.floor(Math.random() * (screenHeight - itemSize));
+
+	if (
+		y > fractionUnit * showFraction &&
+		y < fractionUnit * (fractions - showFraction)
+	) {
+		return screenHeight / 2 > y
+			? { x, y: y + fractionUnit }
+			: { x, y: y - fractionUnit };
+	}
+
 	return { x, y };
 };
 
