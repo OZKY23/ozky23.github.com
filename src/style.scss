@@ -1,10 +1,25 @@
 // Import all of Bootstrap's CSS
+$primary: #00718d;
 @import "bootstrap/scss/bootstrap";
 @import "bootstrap-icons/font/bootstrap-icons.css";
 
+[data-bs-theme="dark"] {
+	color-scheme: dark;
+	--bs-body-bg: #0f0f0f;
+	--color-icon: white;
+	--bs-btn-color: #000;
+	--bs-btn-bg: #f8f9fa;
+}
+
+[data-bs-theme="light"] {
+	--bs-btn-color: #f8f9fa;
+	--bs-btn-bg: #000;
+}
+
 :root {
-	--bg: #dcdde1;
-	--color-icon: #ffffff7e;
+	--bg: #0a0a0a;
+	--size: 50px;
+	--color-icon: var(--bs-body-color);
 	--social-icon1: #e4405f;
 	--social-icon2: #3b5999;
 	--social-icon3: #e4405f;
@@ -14,7 +29,7 @@
 	--shiny-cta-bg: #000000;
 	--shiny-cta-bg-subtle: #1a1818;
 	--shiny-cta-fg: #ffffff;
-	--shiny-cta-highlight: blue;
+	--shiny-cta-highlight: rgb(89, 0, 255);
 	--shiny-cta-highlight-subtle: #8484ff;
 
 	--marquee-width: 100vw;
@@ -26,8 +41,8 @@
 	);
 	--marquee-animation-duration: calc(var(--marquee-elements) * 3s);
 
-	--color-bg1: rgba(111, 111, 111, 0.5);
-	--color-bg2: rgba(88, 88, 88, 0.5);
+	--color-bg1: rgba(3, 3, 3, 0.5);
+	--color-bg2: rgba(17, 17, 17, 0.5);
 	--color1: 255, 255, 255;
 	--color2: 222, 222, 222;
 	--color3: 188, 188, 188;
@@ -163,12 +178,12 @@ header.scroll-up {
 }
 
 .landing-hero {
-	padding-top: 25vh;
-	text-shadow: 0 0 5px rgba(255, 255, 255, 0.728);
+	padding-top: 20vh;
+	text-shadow: 0 0 5px rgba(255, 255, 255, 0.6);
 }
 
 .blurry {
-	backdrop-filter: blur(55px);
+	backdrop-filter: blur(8px);
 }
 
 .win-border {
@@ -390,25 +405,6 @@ input:checked + .slider:before {
 	}
 }
 
-.tag {
-	display: flex;
-	align-items: center;
-	gap: 0 0.2rem;
-	color: #e2e8f0;
-	font-size: 0.9rem;
-	background-color: #334155;
-	border-radius: 0.4rem;
-	padding: 0.7rem 1rem;
-	margin-right: 1rem; // Must used margin-right instead of gap for the loop to be smooth
-	box-shadow: 0 0.1rem 0.2rem rgb(0 0 0 / 20%),
-		0 0.1rem 0.5rem rgb(0 0 0 / 30%), 0 0.2rem 1.5rem rgb(0 0 0 / 40%);
-
-	span {
-		font-size: 1.2rem;
-		color: #64748b;
-	}
-}
-
 // Social icons
 .icon-list {
 	width: 100%;
@@ -488,48 +484,12 @@ input:checked + .slider:before {
 
 // Live BG
 
-@keyframes moveInCircle {
-	0% {
-		transform: rotate(0deg);
-	}
-	50% {
-		transform: rotate(180deg);
-	}
-	100% {
-		transform: rotate(360deg);
-	}
-}
-
-@keyframes moveVertical {
-	0% {
-		transform: translateY(-50%);
-	}
-	50% {
-		transform: translateY(50%);
-	}
-	100% {
-		transform: translateY(-50%);
-	}
-}
-
-@keyframes moveHorizontal {
-	0% {
-		transform: translateX(-50%) translateY(-10%);
-	}
-	50% {
-		transform: translateX(50%) translateY(10%);
-	}
-	100% {
-		transform: translateX(-50%) translateY(-10%);
-	}
-}
-
 .gradient-bg {
 	width: 100vw;
 	height: 100vh;
 	position: relative;
 	overflow: hidden;
-	background: linear-gradient(40deg, var(--color-bg1), var(--color-bg2));
+	// background: linear-gradient(40deg, var(--color-bg1), var(--color-bg2));
 	top: 0;
 	left: 0;
 
@@ -538,132 +498,29 @@ input:checked + .slider:before {
 	}
 
 	.gradients-container {
-		filter: blur(40px);
+		background: conic-gradient(
+			from 180deg at 50% 70%,
+			hsla(0, 0%, 98%, 1) 0deg,
+			#eeb12d 72.0000010728836deg,
+			#ec4b4b 144.0000021457672deg,
+			#087fe0 216.00000858306885deg,
+			#2eb143 288.0000042915344deg,
+			hsla(0, 0%, 98%, 1) 1turn
+		);
 		width: 100%;
 		height: 100%;
+		mask: radial-gradient(circle at 50% 50%, white 1px, transparent 1px) 50%
+				50% / var(--size) var(--size),
+			url("https://assets.codepen.io/605876/noise-mask.png") 256px 50% /
+				256px 256px;
+		mask-composite: intersect;
+		animation: flicker 20s infinite linear;
 	}
 
-	.g1 {
-		position: absolute;
-		background: radial-gradient(
-				circle at center,
-				rgba(var(--color1), 0.8) 0,
-				rgba(var(--color1), 0) 50%
-			)
-			no-repeat;
-		mix-blend-mode: var(--blending);
-
-		width: var(--circle-size);
-		height: var(--circle-size);
-		top: calc(50% - var(--circle-size) / 2);
-		left: calc(50% - var(--circle-size) / 2);
-
-		transform-origin: center center;
-		animation: moveVertical 30s ease infinite;
-
-		opacity: 1;
-	}
-
-	.g2 {
-		position: absolute;
-		background: radial-gradient(
-				circle at center,
-				rgba(var(--color2), 0.8) 0,
-				rgba(var(--color2), 0) 50%
-			)
-			no-repeat;
-		mix-blend-mode: var(--blending);
-
-		width: var(--circle-size);
-		height: var(--circle-size);
-		top: calc(50% - var(--circle-size) / 2);
-		left: calc(50% - var(--circle-size) / 2);
-
-		transform-origin: calc(50% - 400px);
-		animation: moveInCircle 20s reverse infinite;
-
-		opacity: 1;
-	}
-
-	.g3 {
-		position: absolute;
-		background: radial-gradient(
-				circle at center,
-				rgba(var(--color3), 0.8) 0,
-				rgba(var(--color3), 0) 50%
-			)
-			no-repeat;
-		mix-blend-mode: var(--blending);
-
-		width: var(--circle-size);
-		height: var(--circle-size);
-		top: calc(50% - var(--circle-size) / 2 + 200px);
-		left: calc(50% - var(--circle-size) / 2 - 500px);
-
-		transform-origin: calc(50% + 400px);
-		animation: moveInCircle 40s linear infinite;
-
-		opacity: 1;
-	}
-
-	.g4 {
-		position: absolute;
-		background: radial-gradient(
-				circle at center,
-				rgba(var(--color4), 0.8) 0,
-				rgba(var(--color4), 0) 50%
-			)
-			no-repeat;
-		mix-blend-mode: var(--blending);
-
-		width: var(--circle-size);
-		height: var(--circle-size);
-		top: calc(50% - var(--circle-size) / 2);
-		left: calc(50% - var(--circle-size) / 2);
-
-		transform-origin: calc(50% - 200px);
-		animation: moveHorizontal 40s ease infinite;
-
-		opacity: 0.7;
-	}
-
-	.g5 {
-		position: absolute;
-		background: radial-gradient(
-				circle at center,
-				rgba(var(--color5), 0.8) 0,
-				rgba(var(--color5), 0) 50%
-			)
-			no-repeat;
-		mix-blend-mode: var(--blending);
-
-		width: calc(var(--circle-size) * 2);
-		height: calc(var(--circle-size) * 2);
-		top: calc(50% - var(--circle-size));
-		left: calc(50% - var(--circle-size));
-
-		transform-origin: calc(50% - 800px) calc(50% + 200px);
-		animation: moveInCircle 20s ease infinite;
-
-		opacity: 1;
-	}
-
-	.interactive {
-		position: absolute;
-		background: radial-gradient(
-				circle at center,
-				rgba(var(--color-interactive), 0.8) 0,
-				rgba(var(--color-interactive), 0) 50%
-			)
-			no-repeat;
-		mix-blend-mode: var(--blending);
-
-		width: 100%;
-		height: 100%;
-		top: -50%;
-		left: -50%;
-
-		opacity: 0.7;
+	@keyframes flicker {
+		to {
+			mask-position: 50% 50%, 0 50%;
+		}
 	}
 }
 
@@ -826,32 +683,41 @@ input:checked + .slider:before {
 	}
 }
 
-.p-field-3d {
+// 3D Carousel
+
+.container-carousel {
 	position: relative;
+	width: 320px;
+	margin: 0px auto 0 auto;
+	perspective: 1000px;
 	transform-style: preserve-3d;
-	width: 100%;
-	height: 100vh;
-	animation: rotate 30s infinite;
-	&__item {
-		position: absolute;
-		left: 0;
-		top: 0;
-		transition: filter 0.8s;
-		border-radius: 50%;
-		overflow: hidden;
-		width: 10rem;
-		height: 10rem;
-	}
+	transform: rotateX(23deg) translateZ(-567px);
 }
 
-@keyframes rotate {
-	0% {
-		transform: rotateX(0deg) rotateY(0deg);
+.carousel {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	transform-style: preserve-3d;
+	animation: rotate360 60s infinite forwards linear;
+}
+.carousel__face {
+	position: absolute;
+	width: 300px;
+	height: 187px;
+	top: 20px;
+	left: 10px;
+	right: 10px;
+	background-size: cover;
+	box-shadow: inset 0 3px 23px 1px rgba(0, 0, 0, 0.4);
+	display: flex;
+}
+
+@keyframes rotate360 {
+	from {
+		transform: rotateY(0deg);
 	}
-	50% {
-		transform: rotateX(0deg) rotateY(8deg);
-	}
-	100% {
-		transform: rotateX(0deg) rotateY(0deg);
+	to {
+		transform: rotateY(-360deg);
 	}
 }
