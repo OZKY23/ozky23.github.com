@@ -1,15 +1,6 @@
 [
   {
-    "url": "/projects/accor.html",
-    "metaData": {
-      "title": "Accor",
-      "description": "Simple and effective designs for a new business activity",
-      "topics": "Branding, Graphic design",
-      "tecnologies": "Raster, Vectorial"
-    }
-  },
-  {
-    "url": "/projects/contiSw.html",
+    "url": "/projects\\contiSw.html",
     "metaData": {
       "title": "ContiSW brand redesign",
       "description": "A complete brand renewal for a professional and champion in the field of athletic preparation and competition.",
