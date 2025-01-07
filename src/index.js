@@ -9,15 +9,6 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 function handleMain() {
-	// Globals
-	document.getElementById("btnSwitch").addEventListener("click", () => {
-		if (document.body.getAttribute("data-bs-theme") == "dark") {
-			document.body.setAttribute("data-bs-theme", "light");
-		} else {
-			document.body.setAttribute("data-bs-theme", "dark");
-		}
-	});
-
 	const indicator = document.querySelector(".nav-indicator");
 	const items = document.querySelectorAll(".nav-item");
 	const mainContainer = document.querySelector("main");
