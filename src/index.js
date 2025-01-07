@@ -1,9 +1,9 @@
 import "./style.scss";
 
 document.addEventListener("DOMContentLoaded", () => {
-	if (document.title === "OZKY23") {
+	if (document.title === "Oscar De Filpo") {
 		handleMain();
-	} else if (document.title === "OZKY23 - Portfolio") {
+	} else if (document.title === "Oscar De Filpo - Portfolio") {
 		handleProjects();
 	}
 });
