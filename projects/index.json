@@ -1,5 +1,14 @@
 [
   {
+    "url": "/projects\\CJ.html",
+    "metaData": {
+      "title": "Cesana Jewels",
+      "description": "A brand new brand design",
+      "topics": "Branding, Graphic design, Web Design",
+      "tecnologies": "HTML5, SCSS, JS, Vectorial"
+    }
+  },
+  {
     "url": "/projects\\contiSw.html",
     "metaData": {
       "title": "ContiSW brand redesign",
